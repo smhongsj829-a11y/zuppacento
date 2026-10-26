@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="소중한 10%를 위한 일본 여행 면세 서포터. 영수증 인식, 예상 환급액, 위탁/기내 체크리스트, 공항 가이드.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2230%22 fill=%22%23F0243F%22/%3E%3Ctext x=%2232%22 y=%2240%22 font-size=%2222%22 font-family=%22sans-serif%22 font-weight=%22900%22 fill=%22white%22 text-anchor=%22middle%22%3E10%25%3C/text%3E%3C/svg%3E">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>10% ジュッパーセント</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: iOS-style inset grouped lists in one column on a black ground; red hanko logo, summary card, segmented control. Single dark look by choice. */
+:root{
+  color-scheme:dark;
+  --bg:#000000; --surface:#1C1C1E; --ink:#F2F2F7; --muted:#98989F; --line:#38383A; --fill:#2C2C2E;
+  --accent:#F0243F; --accent-soft:rgba(240,36,63,.18);
+  --stamp:#FF453A; --stamp-soft:rgba(255,69,58,.16); --ok:#30D158; --ok-soft:rgba(48,209,88,.16); --warn:#FF9F0A; --warn-soft:rgba(255,159,10,.16);
+  --f-body:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  --f-display:-apple-system, BlinkMacSystemFont, "SF Pro Display", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:12.6px;line-height:1.45;letter-spacing:-.01em;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+html{font-size:90%}
+.wrap{max-width:540px;margin:0 auto;padding-block:18px 50px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1.logo{display:flex;align-items:center;gap:12px;line-height:1}
+h1.logo .mark{position:relative;width:63px;height:63px;flex:none;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-content:center;justify-items:center;gap:3px;transform:rotate(-6deg);
+  box-shadow:inset 0 0 0 3px var(--accent),inset 0 0 0 4.5px rgba(255,255,255,.9);font-family:"Dela Gothic One","Zen Kaku Gothic New","Hiragino Sans",sans-serif;font-weight:400}
+h1.logo .mark::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 30% 80%,rgba(255,255,255,.18) 0 2px,transparent 3px),radial-gradient(circle at 78% 22%,rgba(255,255,255,.14) 0 1.5px,transparent 2.5px);pointer-events:none}
+h1.logo .mark .num{font-size:1.4rem;letter-spacing:-.05em;line-height:1;display:inline-flex;align-items:flex-start}
+h1.logo .mark .pct{font-size:.6em;margin-left:.04em;margin-top:.08em}
+h1.logo .mark .men{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;font-weight:700;font-size:.6rem;letter-spacing:.3em;margin-right:-.3em;line-height:1;opacity:.95}
+h1.logo .kana{display:grid;gap:5px;justify-items:start;text-align:left}
+h1.logo .kana .ja{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.14em;margin-right:-.14em;color:var(--ink)}
+h1.logo .kana .rd{font-size:.68rem;font-weight:500;letter-spacing:.32em;margin-right:-.32em;color:var(--muted);text-transform:uppercase}
+h1.logo .kana .tl{font-size:.7rem;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:3px;font-family:var(--f-body)}
+h2{font-size:1.05rem;font-weight:700;letter-spacing:-.015em}
+h3{font-size:.95rem;font-weight:600}
+p{margin:0;text-wrap:pretty}
+.muted{color:var(--muted)}
+.mono{font-variant-numeric:tabular-nums}
+.small{font-size:.86rem}
+.eyebrow{font-size:.8rem;color:var(--muted);font-weight:400;padding-left:4px}
+button,input,select{font:inherit;color:inherit;letter-spacing:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--accent-soft);outline-offset:1px}
+
+/* header */
+.top .sub{font-size:.86rem;color:var(--muted);margin-top:4px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.info-link{flex:none;background:none;border:0;padding:6px 0;color:var(--muted);font-size:.74rem;white-space:nowrap;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.info-link:hover{color:var(--ink)}
+.strip{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px 8px;margin-top:4px}
+@supports (backdrop-filter:blur(1px)){.strip{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}}
+.summary{background:var(--surface);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:12px;align-items:end}
+.summary .lbl{font-size:.72rem;color:var(--muted)}
+.summary .big{font-size:1.45rem;font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.summary .mid{font-size:.95rem;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px}
+@media (max-width:560px){.summary{grid-template-columns:1fr 1fr;gap:10px}.summary .hero{grid-column:1/-1}}
+.summary .of{font-size:.8rem;color:var(--muted);font-weight:500}
+.seg{display:inline-grid;grid-template-columns:1fr 1fr;background:var(--fill);border-radius:8px;padding:2px;gap:2px;flex:none}
+.seg button{border:0;background:none;font-size:.72rem;padding:3px 9px;border-radius:6px;color:var(--muted);font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.bagtag{font-size:.68rem;border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:1px;background:var(--accent-soft);color:var(--accent)}
+.bagtag.cabin{background:var(--warn-soft);color:var(--warn)}
+.bagcols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:520px){.bagcols{grid-template-columns:1fr}}
+.bagcol h3{display:flex;justify-content:space-between;align-items:baseline}
+.bagcol ul{list-style:none;margin:6px 0 0;padding:0;display:grid}
+.bagcol li{padding:5px 0;border-top:.5px solid var(--line);font-size:.84rem;display:flex;justify-content:space-between;gap:8px}
+.bagcol li:first-child{border-top:0}
+.bagcol li.done span:first-child{color:var(--muted);text-decoration:line-through}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:10px;background:var(--fill);border-radius:10px;padding:2px}
+.tab{background:none;border:0;padding:5px 6px;font-size:.84rem;font-weight:500;color:var(--ink);border-radius:8px;transition:background .2s,box-shadow .2s}
+.tab[aria-selected="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04);font-weight:600}
+.tab .n{font-size:.78rem;margin-left:4px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+section.panel{display:grid;gap:14px;margin-top:10px}
+
+/* buttons */
+.btn{border:0;background:var(--fill);color:var(--accent);border-radius:9px;padding:8px 14px;font-weight:600;font-size:.88rem;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:opacity .15s}
+.btn:active{opacity:.6}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{background:none;color:var(--accent);padding:6px 4px;font-weight:400}
+.btn.ghost[data-del]{color:var(--stamp)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* capture */
+.capture{background:var(--surface);border-radius:12px;padding:14px;display:grid;gap:10px}
+.capture .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.capture .row>*{width:100%}
+.capture input[type=file]{display:none}
+.status-line{font-size:.86rem;color:var(--muted);min-height:1.2em}
+.status-line:empty{display:none}
+.status-line.err{color:var(--stamp)}
+
+/* receipt cards */
+.slips{display:grid;gap:10px}
+.slip{background:var(--surface);border-radius:12px;padding:12px 14px 6px;min-width:0}
+.voidable{position:relative;overflow:hidden}
+.voidable.is-void .vbody{filter:blur(3px) grayscale(.6);opacity:.45;pointer-events:none;user-select:none}
+.intro-bg{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.6);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.intro{background:var(--surface);border-radius:16px;width:100%;max-width:380px;max-height:100%;overflow:auto;padding:28px 24px 22px;display:grid;gap:16px}
+.intro .badge{justify-self:start;font-size:.64rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:3px 10px}
+.intro h2{font-size:1rem;line-height:1.4;font-weight:700}
+.intro h2 b{font-weight:inherit;color:var(--accent)}
+.intro ol{margin:0;padding:0;list-style:none;display:grid;gap:12px;counter-reset:n}
+.intro li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.72rem;line-height:1.5;counter-increment:n}
+.intro li::before{content:counter(n);font-size:.82rem;line-height:1;width:1.5em;height:1.5em;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-variant-numeric:tabular-nums}
+.intro li b{display:block;font-size:.82rem;line-height:1.5;color:var(--ink);margin-bottom:2px}
+.intro li span{color:var(--muted)}
+.intro .btn{width:100%}
+.intro-actions{display:grid;gap:4px;justify-items:center}
+@media (prefers-reduced-motion:no-preference){.intro{animation:pop .3s cubic-bezier(.2,.8,.2,1)}@keyframes pop{from{transform:translateY(12px) scale(.98);opacity:0}to{transform:none;opacity:1}}}
+.void-ov{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:8px;padding:16px;text-align:center;background:rgba(0,0,0,.35)}
+.void-ov .vt{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.92rem;color:var(--stamp)}
+.void-ov .vt::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--stamp);background:linear-gradient(45deg,transparent 45%,var(--stamp) 45% 55%,transparent 55%)}
+.void-ov p{font-size:.8rem;line-height:1.5;color:var(--ink);max-width:300px}
+.void-ov .vused{font-size:.74rem;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.voidable .vbody{transition:filter .25s,opacity .25s}.void-ov{animation:fadein .25s ease-out}@keyframes fadein{from{opacity:0}to{opacity:1}}}
+.slip .store{font-weight:600;font-size:.95rem;line-height:1.3;overflow-wrap:anywhere}
+.slip .meta{color:var(--muted);font-size:.78rem;margin-top:2px;font-variant-numeric:tabular-nums}
+.slip hr{border:0;border-top:.5px solid var(--line);margin:8px 0}
+.li{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;align-items:start;padding:4px 0;line-height:1.45}
+.li:has(.uc){grid-template-columns:minmax(0,1fr) 72px 58px}
+.li .nm{min-width:0;overflow-wrap:anywhere;font-size:.88rem}
+.li .nm small{display:block;color:var(--muted);font-size:.74rem}
+.li .uc{display:flex;justify-content:center;align-items:center;height:calc(.88rem * 1.45)}
+.li.lh{padding:0 0 4px;font-size:.7rem;color:var(--muted);font-weight:600;letter-spacing:.02em}
+.li.lh .uc{font-size:.68rem;white-space:nowrap;height:auto}
+.li.lh .pr{font-size:.7rem}
+.usechk{-webkit-appearance:none;appearance:none;width:20px;height:20px;margin:0;border-radius:6px;border:1.5px solid var(--muted);display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.usechk:checked{background:var(--stamp);border-color:var(--stamp)}
+.usechk:checked::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.li .pr{white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.88rem;text-align:right}
+.rate8{font-size:.68rem;background:var(--fill);border-radius:4px;padding:1px 5px;margin-left:6px;color:var(--muted);vertical-align:1px}
+.tot{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--muted);padding:4px 0}
+.tot.strong{font-weight:600;font-size:.9rem;color:var(--ink)}
+.tot.refund{color:var(--ok);font-weight:600;font-size:.9rem}
+.slip .foot{display:flex;justify-content:flex-end;align-items:center;margin-top:6px;gap:14px}
+.pill{display:inline-flex;align-items:center;font-size:.7rem;font-weight:600;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.bad{background:var(--stamp-soft);color:var(--stamp)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.info{background:var(--fill);color:var(--muted)}
+.pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+
+.empty{background:var(--surface);border-radius:12px;padding:20px 16px;display:grid;gap:8px;justify-items:center;text-align:center}
+.empty .btn{margin-top:8px}
+
+/* grouped cards */
+.card{background:var(--surface);border-radius:12px;padding:14px;display:grid;gap:10px;min-width:0}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.fields{grid-template-columns:1fr}}
+label.f{display:grid;gap:4px;font-size:.76rem;color:var(--muted)}
+input[type=text],input[type=date],input[type=number],select{background:var(--fill);border:0;border-radius:8px;padding:7px 10px;width:100%;min-width:0;color:var(--ink);font-size:.88rem;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:26px}
+.checks{display:grid}
+.chk{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:.5px solid var(--line)}
+.chk:first-child{border-top:0}
+.chk input{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--muted);margin:0;flex:none;display:grid;place-items:center;transition:background .15s,border-color .15s;cursor:pointer}
+.chk input:checked{background:var(--accent);border-color:var(--accent)}
+.chk input:checked::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.chk .t{flex:1;min-width:0;cursor:pointer}
+.chk .t small{display:block;color:var(--muted);font-size:.75rem}
+.chk.done .t>span{color:var(--muted)}
+.group-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.used-tg{font-size:.72rem;border:0;background:var(--fill);border-radius:999px;padding:4px 10px;color:var(--muted);flex:none}
+.used-tg[aria-pressed="true"]{color:var(--stamp);background:var(--stamp-soft);font-weight:600}
+.alert{border-radius:9px;padding:8px 11px;font-size:.82rem}
+.alert.bad{background:var(--stamp-soft);color:var(--stamp)}
+.alert.warn{background:var(--warn-soft);color:var(--warn)}
+.alert.ok{background:var(--ok-soft);color:var(--ok)}
+.totalbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border-radius:12px;padding:12px 14px}
+.totalbar .big{font-size:1.3rem;font-weight:700;letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.totalbar .small{color:var(--muted);opacity:1!important}
+
+/* guide */
+.steps{display:grid}
+.step{display:grid;grid-template-columns:24px 1fr;gap:10px;padding:10px 0;border-top:.5px solid var(--line)}
+.step:first-child{border-top:0;padding-top:4px}
+.step .no{width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:600;font-size:.74rem;font-variant-numeric:tabular-nums}
+.step p{color:var(--muted);font-size:.84rem;margin-top:2px}
+.judge{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.judge div{border-radius:9px;padding:8px 10px;font-size:.82rem}
+.judge .g{background:var(--ok-soft);color:var(--ok)}
+.judge .r{background:var(--stamp-soft);color:var(--stamp)}
+@media (max-width:420px){.judge{grid-template-columns:1fr}}
+ul.plain{margin:0;padding:0;list-style:none;display:grid}
+ul.plain li{padding:7px 0;border-top:.5px solid var(--line);font-size:.86rem}
+ul.plain li:first-child{border-top:0;padding-top:0}
+ul.plain b{font-weight:600}
+.src{font-size:.82rem;color:var(--muted);display:grid;gap:8px}
+.src a{color:var(--accent);text-decoration:none}
+
+/* sheet */
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:20;display:flex;align-items:flex-end;justify-content:center;
+  padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) 0 env(safe-area-inset-left,0px)}
+.sheet{background:var(--bg);width:100%;max-width:680px;max-height:92%;overflow:auto;border-radius:14px 14px 0 0;
+  padding:18px max(16px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:grid;gap:14px}
+.sheet .photo{max-height:220px;object-fit:contain;border-radius:12px;background:var(--surface);width:100%}
+.sheet .fields,.sheet .ed-table.outer{background:var(--surface);border-radius:14px;padding:14px}
+.ed-table{display:grid;gap:10px}
+.ed-row{display:grid;grid-template-columns:1fr 92px 72px 28px;gap:6px;align-items:start}
+.ed-row .names{display:grid;gap:4px;min-width:0}
+.ed-head{font-size:.76rem;color:var(--muted)}
+@media (max-width:460px){.ed-row{grid-template-columns:1fr 84px 66px 26px}}
+.calc-line{display:flex;justify-content:space-between;font-size:.86rem;font-variant-numeric:tabular-nums}
+.sheet .row{justify-content:stretch}.sheet .row .btn{flex:1}
+@media (prefers-reduced-motion:no-preference){.sheet{animation:up .28s cubic-bezier(.2,.8,.2,1)}@keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1 class="logo" aria-label="10% 쥬퍼센토 — 소중한 10%를 위한 일본 여행 면세 서포터"><span class="mark" aria-hidden="true"><span class="num">10<span class="pct">%</span></span><span class="men">免税</span></span><span class="kana"><span class="ja">ジュッパーセント</span><span class="rd">Juppāsento</span><span class="tl">소중한 10%를 위한 일본 여행 면세 서포터</span></span></h1>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div class="summary" aria-live="polite">
+      <div class="hero"><div class="lbl">총 예상 환급액</div><div class="big" id="sumRefund">¥0</div></div>
+      <div><div class="lbl">위탁 수하물</div><div class="mid" id="sumChecked">0</div></div>
+      <div><div class="lbl">기내 반입</div><div class="mid" id="sumCabin">0</div></div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-receipts" aria-selected="true" data-tab="receipts">영수증<span class="n" id="cntReceipts">0</span></button>
+      <button class="tab" role="tab" id="tab-check" aria-selected="false" data-tab="check">출국 전 체크</button>
+      <button class="tab" role="tab" id="tab-guide" aria-selected="false" data-tab="guide">공항 가이드</button>
+    </nav>
+  </div>
+
+  <!-- RECEIPTS -->
+  <section class="panel" id="panel-receipts">
+    <div class="capture">
+      <div>
+        <h2>결제 영수증</h2>
+        <p class="muted" style="font-size:.76rem;line-height:1.5;margin-top:3px">영수증 사진을 올리면 품목/세율/환급 예상액을 자동으로 정리해줘요. 인식 오류는 저장 전에 직접 수정할 수 있어요.</p>
+      </div>
+      <div class="row">
+        <label class="btn primary" for="fileCam" id="camBtn">영수증 촬영</label>
+        <input type="file" id="fileCam" accept="image/*" capture="environment">
+        <button class="btn" id="manualBtn" type="button">직접 입력</button>
+      </div>
+      <div class="status-line" id="scanStatus"></div>
+    </div>
+    <div id="slips"></div>
+  </section>
+
+  <!-- CHECK -->
+  <section class="panel" id="panel-check" hidden>
+    <div class="card">
+      <h2>출국 정보</h2>
+      <div class="fields">
+        <label class="f">출국일<input type="date" id="departDate"></label>
+        <label class="f">환급 수수료 가정 (결제액 대비 %)<input type="number" id="feePct" min="0" max="10" step="0.05" placeholder="0"></label>
+      </div>
+      <p class="small muted">백화점·대형몰은 결제액의 1~2% 안팎을 수수료로 떼는 곳이 있어요. 매장 안내를 보고 맞춰 두면 실수령액에 가깝게 계산됩니다.</p>
+      <div id="departAlert"></div>
+    </div>
+
+    <div class="card" id="bagCard"></div>
+
+    <div id="checkGroups" style="display:grid;gap:16px"></div>
+
+    <div class="totalbar">
+      <div><div class="small">환급 대상 영수증 <span id="eligCount">0</span>장 · 수수료 반영</div><div class="big" id="totalRefund2">¥0</div></div>
+      <div class="small" style="max-width:300px">영수증 한 장에 묶인 품목 중 하나라도 없으면 그 영수증 전체가 환급 대상에서 빠져요.</div>
+    </div>
+
+    <div class="card">
+      <h2>공항 가기 전 최종 점검</h2>
+      <div class="checks" id="prepList"></div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="panel" id="panel-guide" hidden>
+    <div class="card">
+      <h2>출국 당일 순서</h2>
+      <div class="steps">
+        <div class="step"><div class="no">1</div><div><h3>공항엔 평소보다 일찍</h3><p>키오스크가 붐빌 수 있고, 빨강 판정이면 실물 검사까지 받아야 해요. 체크인 마감 전에 세관 확인을 끝낼 시간을 확보하세요.</p></div></div>
+        <div class="step"><div class="no">2</div><div><h3>짐 맡기기 전에 면세부터</h3><p>출발 로비(일반 구역)의 면세 수속 키오스크에 여권을 스캔하거나, Visit Japan Web으로 전용 Wi-Fi 구역에서 온라인 수속을 합니다. 수하물을 위탁한 뒤에는 세관 확인을 받을 수 없어요.</p></div></div>
+        <div class="step"><div class="no">3</div><div><h3>판정 확인</h3>
+          <div class="judge" style="margin-top:6px">
+            <div class="g"><b>초록(Green)</b><br>수속 완료. 그대로 체크인하면 돼요.</div>
+            <div class="r"><b>빨강(Red)</b><br>면세품을 들고 세관 검사 장소로 가서 실물 확인을 받아요.</div>
+          </div></div></div>
+        <div class="step"><div class="no">4</div><div><h3>체크인·수하물 위탁</h3><p>판정이 끝난 뒤에 면세품을 캐리어에 넣어 부쳐도 됩니다. 그래서 면세품은 캐리어 맨 위나 별도 가방에 꺼내기 쉽게 두세요.</p></div></div>
+        <div class="step"><div class="no">5</div><div><h3>환급 대기</h3><p>매장마다 환급 방식이 다르니 유의하세요.</p></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>놓치기 쉬운 것들</h2>
+      <ul class="plain">
+        <li><b>구매일로부터 90일 이내</b>에 출국하면서 세관 확인을 받아야 환급돼요.</li>
+        <li><b>한 매장·같은 날 세전 ¥5,000 이상</b>(세후 약 ¥5,500)이어야 면세 대상이에요. 일반품·소모품 구분은 없어지고 합산됩니다.</li>
+        <li>영수증 한 장에 포함된 물건 중 <b>하나라도 없으면</b> 그 영수증 전체가 환급 대상에서 제외돼요.</li>
+        <li>소모품 전용 봉투(밀봉 포장)는 없어지지만, 식품·음료·화장품을 <b>일본에서 먹거나 쓰면</b> 환급을 못 받아요.</li>
+        <li>구매 수량은 <b>출국 때 직접 들고 나갈 수 있는 만큼</b>으로 제한돼요.</li>
+        <li>일본 국내선에서 국제선으로 갈아탄다면 <b>최종 출국 공항</b>에서 수속해요.</li>
+        <li>세전 <b>¥1,000,000 이상</b> 고가품은 일련번호 등이 기록되니 보증서·인증서를 챙겨 두세요.</li>
+        <li>11월 1일 이전 구매분은 기존 방식(매장에서 즉시 면세)이라 공항 환급 대상이 아니에요.</li>
+        <li>환급액은 소비세 상당액(일반 10%, 식품·무알코올 음료 8%)에서 매장 수수료가 빠질 수 있어요.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>한국 입국 때도 체크</h2>
+      <ul class="plain">
+        <li>일본에서 세금을 돌려받아도, 한국 입국 면세 한도(1인 US$800, 주류·담배·향수 별도)를 넘으면 인천·김포 세관에 신고해야 해요.</li>
+        <li>자진신고하면 관세 감면을 받을 수 있어요. 영수증 탭의 결제 합계로 한도 초과 여부를 미리 가늠해 보세요.</li>
+      </ul>
+    </div>
+
+    <div class="card src">
+      <h3 style="color:var(--ink)">공식 안내</h3>
+      <a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00028.html" target="_blank" rel="noopener">일본 관광청 · 리펀드 방식 안내</a>
+      <a href="https://www.customs.go.jp/kaigairyoko/taxrefund_e.html" target="_blank" rel="noopener">일본 세관 · 출국 시 세관 검사</a>
+      <a href="https://www.japan.travel/ko/kr/topic/saesosig-2026nyeon-11weolbuteo-sobija-myeonse-jedoga-ripeondeu-bangsigeuro-baggwibnida/" target="_blank" rel="noopener">JNTO 한국어 안내</a>
+      <p>공항마다 키오스크 위치와 절차가 조금씩 달라요. 출발 공항 홈페이지를 꼭 한 번 확인하세요.</p>
+    </div>
+  </section>
+</div>
+
+<div class="intro-bg" id="introBg" hidden>
+  <div class="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+    <span class="badge">2026년 11월 1일부터</span>
+    <h2 id="introTitle">일본 면세가 <b>택스리펀</b>으로 바뀌었어요.</h2>
+    <ol>
+      <li><div><b>세금 포함 가격으로 우선 결제, 영수증 챙기기</b><span>여권을 보여주고 세금 포함 가격으로 결제해요. 영수증은 꼭 챙겨 두세요.</span></div></li>
+      <li><div><b>짐 맡기기 전에 면세 키오스크부터</b><span>출국 당일 공항 키오스크에서 여권을 스캔해요. 수하물을 위탁한 뒤엔 확인을 받을 수 없어요.</span></div></li>
+      <li><div><b>빨간불이 뜨면 주의</b><span>초록불이 뜨면 통과, 빨간불이 뜨면 별도의 검사장에서 영수증과 구입 품목을 검사해요.</span></div></li>
+      <li><div><b>영수증 품목은 전부, 소모품은 쓰지 않은 채로</b><span>하나라도 없으면 그 영수증 전체가 환급에서 빠져요. 식품 등의 소모품은 일본에서 먹거나 쓰면 안 되고, 의류나 전자기기는 사용해도 출국 때 가지고 있으면 괜찮아요.</span></div></li>
+      <li><div><b>환급 방법은 매장by매장</b><span>카드 환급, 공항 현금 수령, 은행 송금 등 다양하고, 환급 업체에 따라 수수료가 붙을 수 있어요.</span></div></li>
+    </ol>
+    <div class="intro-actions"><button class="btn primary" id="introOk" type="button">확인했어요</button><button class="info-link" id="introNever" type="button">다시 보지 않기</button></div>
+  </div>
+</div>
+
+<div class="sheet-bg" id="sheetBg" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="group-h"><h2 id="sheetTitle">영수증 확인</h2><button class="btn ghost" id="sheetClose" type="button">닫기</button></div>
+    <img class="photo" id="sheetPhoto" alt="촬영한 영수증" hidden>
+    <div id="sheetNote" class="alert warn" hidden></div>
+    <div class="fields">
+      <label class="f">매장명<input type="text" id="edStore" placeholder="예: ○○ドラッグ 心斎橋店"></label>
+      <label class="f">구매일<input type="date" id="edDate"></label>
+    </div>
+    <div class="ed-table outer">
+      <div class="ed-row ed-head"><span>품목 (원문 / 한국어)</span><span>금액(세포함)</span><span>세율</span><span></span></div>
+      <div id="edRows" class="ed-table"></div>
+      <div><button class="btn ghost" id="edAdd" type="button">품목 추가</button></div>
+    </div>
+    <div class="card" style="gap:4px">
+      <div class="calc-line"><span>결제 합계</span><span id="edTotal">¥0</span></div>
+      <div class="calc-line"><span>세전 금액</span><span id="edEx">¥0</span></div>
+      <div class="calc-line"><span>소비세 (환급 기준)</span><span id="edTax">¥0</span></div>
+      <div class="small muted" id="edPrinted"></div>
+      <div id="edWarn"></div>
+    </div>
+    <div class="row" style="justify-content:flex-end">
+      <button class="btn" id="sheetCancel" type="button">취소</button>
+      <button class="btn primary" id="sheetSave" type="button">저장</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const NEW_START = '2026-11-01';
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const yen = n => '¥' + Math.round(n || 0).toLocaleString('ja-JP');
+const uid = () => 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const todayStr = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); };
+function addDays(ds, n){ const [y,m,d] = ds.split('-').map(Number); const t = new Date(Date.UTC(y, m-1, d + n)); return t.toISOString().slice(0,10); }
+function daysBetween(a, b){ const pa = Date.UTC(...a.split('-').map((v,i)=>i===1?v-1:+v)); const pb = Date.UTC(...b.split('-').map((v,i)=>i===1?v-1:+v)); return Math.round((pb - pa) / 864e5); }
+const BATTERY_RE = /バッテリー|battery|배터리|リチウム|モバイル充電/i;
+const LIQUID_RE = /\d{3,4}\s?ml|化粧水|シャンプー|ローション|酒|ワイン|ウイスキー|日本酒|焼酎|スプレー|미스트|샴푸|술|위스키|사케|토너|스킨/i;
+function bagTag(i){ return i.bag === 'cabin' ? '<span class="bagtag cabin">기내</span>' : i.bag === 'checked' ? '<span class="bagtag">위탁</span>' : ''; }
+function bagWarn(i){
+  const t = (i.name || '') + ' ' + (i.nameKo || '');
+  if (i.bag === 'checked' && BATTERY_RE.test(t)) return '<div class="alert bad" style="margin-top:6px;padding:7px 10px">보조배터리는 위탁 수하물에 넣을 수 없어요. 기내로 가져가세요.</div>';
+  if (i.bag === 'cabin' && LIQUID_RE.test(t)) return '<div class="alert warn" style="margin-top:6px;padding:7px 10px">100ml 넘는 액체는 보안검색에서 걸려요. 면세점 봉투가 아니라면 위탁을 권해요.</div>';
+  return '';
+}
+function voidOverlay(r){
+  const used = (r.items || []).filter(i => i.used);
+  if (!used.length) return '';
+  return `<div class="void-ov" role="alert">
+    <span class="vt">이 영수증은 세금 환급을 받기 어려워요.</span>
+    <p>세관 검사 시 영수증 내 품목 전체가 있어야 해요.</p>
+    <span class="vused">사용·소비한 품목: ${used.map(i => esc(i.nameKo || i.name)).join(', ')}</span>
+    <button type="button" class="btn" data-unuse="${esc(r.id)}">사용 표시 취소</button>
+  </div>`;
+}
+function bindUnuse(root){
+  root.querySelectorAll('[data-unuse]').forEach(b => b.onclick = () => {
+    const r = state.receipts.find(x => x.id === b.dataset.unuse); if (!r) return;
+    r.items.forEach(i => { i.used = false; }); persistReceipt(r); render();
+  });
+}
+function renderBags(list){
+  const groups = { checked: [], cabin: [], none: [] };
+  list.forEach(r => (r.items || []).forEach(i => groups[i.bag === 'cabin' ? 'cabin' : i.bag === 'checked' ? 'checked' : 'none'].push(i)));
+  const col = (title, arr, note) => `<div class="bagcol"><h3>${title}<span class="small muted mono">${arr.filter(i => i.packed).length}/${arr.length}</span></h3>
+    <p class="small muted" style="margin-top:2px">${note}</p>
+    <ul>${arr.length ? arr.map(i => `<li class="${i.packed ? 'done' : ''}"><span>${esc(i.nameKo || i.name)}</span><span class="muted mono">${yen(i.price)}</span></li>`).join('') : '<li class="muted">없음</li>'}</ul></div>`;
+  const total = groups.checked.length + groups.cabin.length + groups.none.length;
+  $('#bagCard').hidden = !total;
+  if (!total) return;
+  $('#bagCard').innerHTML = `<div class="group-h"><h2>어디에 뒀더라?</h2>${(() => { const all = [...groups.checked, ...groups.cabin, ...groups.none]; const left = all.filter(i => !i.packed).length; return groups.none.length ? `<span class="pill warn">가방 미정 ${groups.none.length}개</span>` : left ? `<span class="pill warn">${left}개 남음</span>` : '<span class="pill ok">모두 챙김!</span>'; })()}</div>
+    <div class="bagcols">${col('위탁 수하물', groups.checked, '세관 판정을 받은 뒤 캐리어에 넣어 맡겨요.')}${col('기내 반입', groups.cabin, '배터리·전자기기·귀중품. 액체는 100ml 이하만.')}</div>
+    ${groups.none.length ? `<p class="small muted">아직 가방을 정하지 않은 품목: ${groups.none.map(i => esc(i.nameKo || i.name)).join(', ')}</p>` : ''}`;
+}
+const fmtDate = ds => ds ? ds.replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$2.$3') : '—';
+
+const PREP = [
+  ['passport', '여권 챙기기', '세관 키오스크에서 여권을 스캔해요. 구매 때 쓴 여권과 같은 것이어야 해요.'],
+  ['refundMethod', '환급 받을 방법 확인', '구매 때 등록한 카드·모바일페이·계좌가 출국 후에도 쓸 수 있는지 확인'],
+  ['receipts', '면세품 영수증 모으기', '빨강 판정 때 품목 대조에 필요할 수 있어요.'],
+  ['allItems', '영수증별 품목이 전부 있는지 확인', '위 체크리스트가 모두 초록이면 OK'],
+  ['unused', '먹거나 쓴 면세품이 없는지 확인', '식품·화장품은 개봉해서 쓰면 환급 불가'],
+  ['bagTop', '위탁 예정 면세품은 꺼내기 쉬운 곳에', '빨강 판정이면 맡기기 전에 실물을 보여줘야 해요. 판정 후 캐리어에 넣어 부치세요.'],
+  ['vjw', 'Visit Japan Web 면세 수속 준비(선택)', '공항 전용 Wi-Fi 구역에서 폰으로 수속하면 키오스크 줄을 피할 수 있어요.'],
+  ['early', '공항 일찍 도착', '세관 확인 → 판정 → 체크인 순서라 평소보다 여유 있게'],
+  ['liquids', '액체류는 위탁 수하물로', '판정 끝난 뒤 캐리어에 넣어 부치기 (기내 반입 100ml 제한)'],
+  ['korea', '한국 입국 면세 한도 확인', '1인 US$800 초과 시 자진신고'],
+];
+
+let state = { receipts: [], settings: { departDate: '', feePct: 0, prep: {} } };
+let backend = 'loading', col = null, sampleFn = null, canImages = false;
+const queues = {};
+
+/* ---------- calculation ---------- */
+function calc(r){
+  const feePct = Number(state.settings.feePct) || 0;
+  let total = 0, tax = 0;
+  for (const it of r.items || []) { const p = Number(it.price) || 0; const rate = Number(it.rate) === 8 ? 8 : 10; total += p; tax += p * rate / (100 + rate); }
+  const ex = total - tax;
+  const isNew = (r.date || '') >= NEW_START;
+  const under = ex < 5000;
+  const used = (r.items || []).some(i => i.used);
+  const items = (r.items || []).length;
+  const packed = (r.items || []).filter(i => i.packed).length;
+  const eligible = isNew && !under && !used && items > 0;
+  const fee = total * feePct / 100;
+  const refundGross = tax;
+  const refund = eligible ? Math.max(0, tax - fee) : 0;
+  const deadline = r.date ? addDays(r.date, 90) : null;
+  return { total, tax, ex, isNew, under, used, items, packed, eligible, fee, refund, refundGross, deadline, allPacked: items > 0 && packed === items };
+}
+
+/* ---------- persistence ---------- */
+const LS = 'taxrefund-notebook-v1';
+function loadLocal(){ try { const j = JSON.parse(localStorage.getItem(LS) || 'null'); if (j) state = { receipts: j.receipts || [], settings: Object.assign({ departDate:'', feePct:0, prep:{} }, j.settings || {}) }; } catch(e){} }
+function saveLocal(){ try { localStorage.setItem(LS, JSON.stringify(state)); } catch(e){} }
+
+function enqueue(id, fn){ queues[id] = (queues[id] || Promise.resolve()).then(fn).catch(err => { console.warn(err); flash('저장하지 못했어요. 잠시 뒤 다시 시도해 주세요.', true); }); return queues[id]; }
+function persistReceipt(r){
+  if (backend === 'db') { const body = JSON.parse(JSON.stringify(Object.assign({ kind: 'receipt' }, r))); return enqueue(r.id, () => col.doc(r.id).set(body)); }
+  saveLocal();
+}
+function removeReceipt(id){
+  state.receipts = state.receipts.filter(r => r.id !== id); render();
+  if (backend === 'db') return enqueue(id, () => col.doc(id).delete());
+  saveLocal();
+}
+let settingsTimer = null;
+function persistSettings(){
+  if (backend !== 'db') { saveLocal(); return; }
+  clearTimeout(settingsTimer);
+  settingsTimer = setTimeout(() => { const body = JSON.parse(JSON.stringify(Object.assign({ kind: 'settings' }, state.settings))); enqueue('settings', () => col.doc('settings').set(body)); }, 500);
+}
+
+async function initStore(){
+  const c = window.claude;
+  if (c && c.use) {
+    try {
+      const [db, user, sample] = await Promise.all([c.use('db'), c.use('user'), c.use('sample')]);
+      sampleFn = sample;
+      if (sample) { try { const lim = await sample.limits(); canImages = !!lim.images; } catch(e) { canImages = false; } }
+      if (db && user) {
+        const id = await user.id();
+        if (id) {
+          col = db.collection('data/users/' + id);
+          backend = 'db';
+          col.onSnapshot(snap => {
+            const receipts = []; let settings = null;
+            snap.docs.forEach(d => { const raw = d.data(); if (!raw) return; const v = JSON.parse(JSON.stringify(raw)); if (d.id === 'settings') settings = v; else if (v.kind === 'receipt') receipts.push(v); });
+            receipts.sort((a, b) => (a.date || '').localeCompare(b.date || '') || (a.createdAt || 0) - (b.createdAt || 0));
+            state.receipts = receipts;
+            if (settings) state.settings = Object.assign({ departDate:'', feePct:0, prep:{} }, settings);
+            render();
+            if (!snap.metadata || !snap.metadata.fromCache) maybeIntro();
+          }, () => { backend = 'local'; loadLocal(); render(); maybeIntro(); });
+          render();
+          return;
+        }
+      }
+    } catch(e) { console.warn(e); }
+  }
+  backend = 'local'; loadLocal(); render(); maybeIntro();
+}
+
+/* ---------- first-visit intro (once per person, ever) ---------- */
+const INTRO_KEY = 'taxrefund-notebook-v1-intro-hide';
+let introChecked = false;
+function maybeIntro(){
+  if (introChecked) return; introChecked = true;
+  let hide = !!state.settings.introHide;
+  try { if (localStorage.getItem(INTRO_KEY) === '1') hide = true; } catch(e){}
+  if (hide && location.hash !== '#intro') return;
+  showIntro();
+}
+function showIntro(){
+  $('#introBg').hidden = false; document.body.style.overflow = 'hidden';
+  setTimeout(() => $('#introOk').focus(), 50);
+}
+function closeIntro(never){
+  $('#introBg').hidden = true; document.body.style.overflow = '';
+  if (!never) return;
+  try { localStorage.setItem(INTRO_KEY, '1'); } catch(e){}
+  state.settings.introHide = true; persistSettings();
+}
+$('#introOk').onclick = () => closeIntro(false);
+$('#introNever').onclick = () => closeIntro(true);
+
+/* ---------- render ---------- */
+function render(){
+  renderSummary(); renderSlips(); renderCheck(); updateCapture();
+}
+function renderSummary(){
+  let refund = 0, items = 0, packed = 0, dl = null;
+  for (const r of state.receipts) { const k = calc(r); refund += k.refund; if (k.isNew) { items += k.items; packed += k.packed; if (k.eligible && k.deadline && (!dl || k.deadline < dl)) dl = k.deadline; } }
+  $('#sumRefund').textContent = yen(refund);
+  let nChk = 0, pChk = 0, nCab = 0, pCab = 0;
+  for (const r of state.receipts) { if (!calc(r).isNew) continue; for (const i of r.items || []) { if (i.bag === 'cabin') { nCab++; if (i.packed) pCab++; } else if (i.bag === 'checked') { nChk++; if (i.packed) pChk++; } } }
+  $('#sumChecked').innerHTML = pChk + '<span class="of"> / ' + nChk + '</span>';
+  $('#sumCabin').innerHTML = pCab + '<span class="of"> / ' + nCab + '</span>';
+  $('#cntReceipts').textContent = state.receipts.length;
+}
+
+function statusPills(r, k){
+  const out = [];
+  if (!k.isNew) out.push('<span class="pill info">11/1 이전 · 기존 즉시면세</span>');
+  else if (k.under) out.push('<span class="pill bad">세전 ¥5,000 미만 · 대상 아님</span>');
+  else if (k.used) out.push('<span class="pill bad">일본에서 사용한 품목 있음</span>');
+  else out.push('<span class="pill ok">환급 대상</span>');
+  if (k.isNew && k.items) out.push(k.allPacked ? '<span class="pill ok">품목 모두 챙김</span>' : `<span class="pill warn">챙김 ${k.packed}/${k.items}</span>`);
+  if (r.example) out.push('<span class="pill info">예시</span>');
+  return out.join('');
+}
+
+function renderSlips(){
+  const box = $('#slips');
+  if (backend === 'loading') { box.innerHTML = '<div class="empty"><p class="muted">저장된 영수증을 불러오는 중…</p></div>'; return; }
+  if (!state.receipts.length) {
+    box.innerHTML = `<div class="empty">
+      <h3>아직 저장한 영수증이 없어요</h3>
+      <p class="muted" style="font-size:.76rem;line-height:1.5">면세 결제 영수증을 찍어 올리면<br>여기에 한 장씩 쌓여요.<br>먼저 어떻게 보이는지 예시로 확인해 보세요.</p>
+      <button class="btn" id="loadSample" type="button">예시 영수증 2장 불러오기</button>
+    </div>`;
+    $('#loadSample').onclick = loadSamples;
+    return;
+  }
+  box.innerHTML = '<div class="slips">' + state.receipts.map(r => {
+    const k = calc(r);
+    const lines = (r.items || []).map((i, idx) => `<div class="li"><span class="nm">${esc(i.name)}${Number(i.rate)===8?'<span class="rate8">軽8%</span>':''}${bagTag(i)}${i.nameKo?`<small>${esc(i.nameKo)}</small>`:''}</span><span class="pr">${yen(i.price)}</span>${k.isNew ? `<span class="uc"><input type="checkbox" class="usechk" id="uc-${esc(r.id)}-${idx}" data-uc="${esc(r.id)}" data-ui="${idx}" ${i.used ? 'checked' : ''} aria-label="${esc(i.nameKo || i.name)} 일본에서 사용"></span>` : ''}</div>`).join('');
+    const head = k.isNew && (r.items || []).length ? '<div class="li lh"><span class="nm">품목</span><span class="pr">금액</span><span class="uc">일본에서 사용</span></div>' : '';
+    return `<article class="slip voidable${k.used ? ' is-void' : ''}"><div class="vbody">
+      <div class="store">${esc(r.store || '매장명 없음')}</div>
+      <div class="meta">${esc(r.date || '날짜 없음')}</div>
+      <hr>${head}${lines || '<div class="muted">품목 없음</div>'}<hr>
+      <div class="tot strong"><span>合計 결제</span><span>${yen(k.total)}</span></div>
+      <div class="tot"><span>세전 금액</span><span>${yen(k.ex)}</span></div>
+      <div class="tot"><span>소비세</span><span>${yen(k.tax)}</span></div>
+      ${k.fee && k.eligible ? `<div class="tot"><span>수수료 가정</span><span>−${yen(k.fee)}</span></div>` : ''}
+      <div class="tot refund"><span>예상 환급</span><span>${k.eligible ? yen(k.refund) : '—'}</span></div>
+      <div class="pills">${statusPills(r, k)}</div>
+      <div class="foot"><button class="btn ghost" data-edit="${esc(r.id)}" type="button">수정</button><button class="btn ghost" data-del="${esc(r.id)}" type="button">삭제</button></div>
+    </div>${voidOverlay(r)}
+      <div class="del-confirm" id="dc-${esc(r.id)}" hidden></div>
+    </article>`;
+  }).join('') + '</div>';
+  bindUnuse(box);
+  box.querySelectorAll('[data-uc]').forEach(cb => cb.onchange = () => {
+    const r = state.receipts.find(x => x.id === cb.dataset.uc); if (!r) return;
+    r.items[+cb.dataset.ui].used = cb.checked; persistReceipt(r); render();
+  });
+  box.querySelectorAll('[data-edit]').forEach(b => b.onclick = () => openSheet(state.receipts.find(r => r.id === b.dataset.edit)));
+  box.querySelectorAll('[data-del]').forEach(b => b.onclick = () => {
+    const dc = $('#dc-' + CSS.escape(b.dataset.del));
+    dc.hidden = false;
+    dc.innerHTML = `<div class="alert bad" style="font-family:var(--f-body);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap">이 영수증을 삭제할까요?<span class="row"><button class="btn" type="button" data-no>취소</button><button class="btn primary" type="button" data-yes style="background:var(--stamp);color:#fff">삭제</button></span></div>`;
+    dc.querySelector('[data-no]').onclick = () => { dc.hidden = true; };
+    dc.querySelector('[data-yes]').onclick = () => removeReceipt(b.dataset.del);
+  });
+}
+
+function renderCheck(){
+  const s = state.settings;
+  if (document.activeElement !== $('#departDate')) $('#departDate').value = s.departDate || '';
+  if (document.activeElement !== $('#feePct')) $('#feePct').value = s.feePct ? s.feePct : '';
+
+  const newOnes = state.receipts.filter(r => calc(r).isNew);
+  // departure alert
+  const da = $('#departAlert'); const msgs = [];
+  if (s.departDate) {
+    const late = newOnes.filter(r => { const k = calc(r); return k.eligible && k.deadline && s.departDate > k.deadline; });
+    if (late.length) msgs.push(`<div class="alert bad">출국일이 90일 마감을 넘긴 영수증이 ${late.length}장 있어요: ${late.map(r => esc(r.store || r.date)).join(', ')}</div>`);
+    const after = newOnes.filter(r => r.date > s.departDate);
+    if (after.length) msgs.push(`<div class="alert warn">출국일보다 늦은 구매일이 적힌 영수증이 있어요. 날짜를 확인해 주세요.</div>`);
+    if (!late.length && !after.length && newOnes.length) msgs.push(`<div class="alert ok">모든 영수증이 출국일 기준 90일 안에 들어와요.</div>`);
+  }
+  da.innerHTML = msgs.join('');
+
+  renderBags(newOnes);
+  const g = $('#checkGroups');
+  if (!newOnes.length) {
+    g.innerHTML = `<div class="card"><h3>챙길 면세품이 아직 없어요</h3><p class="small muted">11월 1일 이후 구매한 면세 영수증을 추가하면, 영수증별로 품목을 하나씩 체크할 수 있는 목록이 여기 생겨요.</p></div>`;
+  } else {
+    g.innerHTML = newOnes.map(r => {
+      const k = calc(r);
+      const status = !k.eligible ? (k.under ? '<span class="pill bad">대상 아님</span>' : '<span class="pill bad">환급 불가</span>') : (k.allPacked ? '<span class="pill ok">준비 완료</span>' : `<span class="pill warn">${k.items - k.packed}개 남음</span>`);
+      const rows = (r.items || []).map((i, idx) => `<div class="chk ${i.packed ? 'done' : ''}" style="align-items:flex-start">
+          <input type="checkbox" id="pk-${esc(r.id)}-${idx}" data-r="${esc(r.id)}" data-i="${idx}" ${i.packed ? 'checked' : ''} style="margin-top:2px">
+          <div class="t"><label for="pk-${esc(r.id)}-${idx}" style="cursor:pointer;display:block"><span>${esc(i.nameKo || i.name)}</span><small>${esc(i.nameKo ? i.name : '')} ${yen(i.price)}</small></label>
+            <div class="ctl"><span class="seg" role="group" aria-label="넣을 가방"><button type="button" data-br="${esc(r.id)}" data-bi="${idx}" data-b="checked" aria-pressed="${i.bag === 'checked'}">위탁</button><button type="button" data-br="${esc(r.id)}" data-bi="${idx}" data-b="cabin" aria-pressed="${i.bag === 'cabin'}">기내</button></span>
+            <button type="button" class="used-tg" data-ur="${esc(r.id)}" data-ui="${idx}" aria-pressed="${i.used ? 'true' : 'false'}">${i.used ? '사용함' : '미사용'}</button></div>
+            ${bagWarn(i)}</div>
+        </div>`).join('');
+      return `<div class="card voidable${k.used ? ' is-void' : ''}"><div class="vbody" style="display:grid;gap:10px">
+        <div class="group-h"><div><h3>${esc(r.store || '매장명 없음')}</h3><div class="small muted">${esc(r.date)} · 마감 ${esc(k.deadline || '—')}</div></div>
+          <div style="text-align:right">${status}<div class="mono small" style="margin-top:4px">${k.eligible ? '환급 ' + yen(k.refund) : '—'}</div></div></div>
+        ${k.under ? '<div class="alert bad">한 매장·같은 날 세전 ¥5,000 이상이어야 해요. 같은 날 같은 매장 영수증이 따로 있다면 매장에 합산 가능한지 확인해 보세요.</div>' : ''}
+        <div class="checks">${rows}</div>
+      </div>${voidOverlay(r)}</div>`;
+    }).join('');
+    bindUnuse(g);
+    g.querySelectorAll('input[data-r]').forEach(cb => cb.onchange = () => {
+      const r = state.receipts.find(x => x.id === cb.dataset.r); if (!r) return;
+      r.items[+cb.dataset.i].packed = cb.checked; persistReceipt(r); render();
+    });
+    g.querySelectorAll('[data-br]').forEach(b => b.onclick = () => {
+      const r = state.receipts.find(x => x.id === b.dataset.br); if (!r) return;
+      const it = r.items[+b.dataset.bi]; it.bag = it.bag === b.dataset.b ? null : b.dataset.b; persistReceipt(r); render();
+    });
+    g.querySelectorAll('[data-ur]').forEach(b => b.onclick = () => {
+      const r = state.receipts.find(x => x.id === b.dataset.ur); if (!r) return;
+      const it = r.items[+b.dataset.ui]; it.used = !it.used; persistReceipt(r); render();
+    });
+  }
+  const elig = state.receipts.filter(r => calc(r).eligible);
+  $('#eligCount').textContent = elig.length;
+  $('#totalRefund2').textContent = yen(elig.reduce((a, r) => a + calc(r).refund, 0));
+
+  // prep list
+  const p = s.prep || {};
+  $('#prepList').innerHTML = PREP.map(([key, t, sub]) => `<div class="chk ${p[key] ? 'done' : ''}">
+    <input type="checkbox" id="prep-${key}" data-p="${key}" ${p[key] ? 'checked' : ''}>
+    <label class="t" for="prep-${key}"><span>${esc(t)}</span><small>${esc(sub)}</small></label></div>`).join('');
+  $('#prepList').querySelectorAll('input[data-p]').forEach(cb => cb.onchange = () => {
+    state.settings.prep = Object.assign({}, state.settings.prep, { [cb.dataset.p]: cb.checked }); persistSettings(); renderCheck();
+  });
+}
+
+function updateCapture(){
+  const btn = $('#camBtn'), st = $('#scanStatus');
+  if (backend === 'loading') return;
+  if (!STANDALONE && (!sampleFn || !canImages)) {
+    btn.style.display = 'none';
+    if (!st.dataset.busy) { st.className = 'status-line'; st.textContent = '이 화면에서는 사진 인식을 쓸 수 없어요. "직접 입력"으로 추가해 주세요.'; }
+  } else { btn.style.display = ''; }
+}
+
+let flashTimer;
+function flash(msg, err){ const st = $('#scanStatus'); st.className = 'status-line' + (err ? ' err' : ''); st.textContent = msg; clearTimeout(flashTimer); if (!err) flashTimer = setTimeout(() => { if (!st.dataset.busy) st.textContent = ''; }, 4000); }
+
+/* ---------- scan ---------- */
+const STANDALONE = !(window.claude && window.claude.use);
+async function toJpegBase64(file){
+  const bmp = await createImageBitmap(file).catch(() => null);
+  if (!bmp) throw { code: 'image_rejected' };
+  const max = 1600, sc = Math.min(1, max / Math.max(bmp.width, bmp.height));
+  const c = document.createElement('canvas'); c.width = Math.round(bmp.width * sc); c.height = Math.round(bmp.height * sc);
+  c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+  return c.toDataURL('image/jpeg', 0.85).split(',')[1];
+}
+async function scanViaApi(file){
+  const image = await toJpegBase64(file);
+  let res;
+  try { res = await fetch('/api/scan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image, mediaType: 'image/jpeg' }) }); }
+  catch(e) { throw { code: 'upstream_error' }; }
+  const j = await res.json().catch(() => null);
+  if (!res.ok || !j) throw { code: res.status === 429 ? 'rate_limited' : (j && j.code) || 'upstream_error' };
+  return j;
+}
+const PROMPT = `이 사진은 일본 매장에서 면세(Tax-Free) 구매 후 받은 결제 영수증(レシート)입니다. 영수증을 읽어 아래 JSON 하나만 답하세요. 다른 문장은 쓰지 마세요.
+
+{"store":"매장명(영수증 표기 그대로, 지점명 포함)","date":"YYYY-MM-DD 또는 null","items":[{"name":"품목명 원문","nameKo":"한국어로 짧게 무엇인지(예: 눈 피로 안약)","price":세금포함 줄금액(정수, 수량 반영),"rate":10 또는 8,"bag":"checked" 또는 "cabin"}],"printedTotal":영수증의 합계 정수 또는 null,"printedTax":영수증에 찍힌 소비세 합계 정수 또는 null,"taxFreeMarked":영수증에 免税/Tax-Free/輸出免税 표시가 있으면 true,"note":"읽기 어려웠던 부분이 있으면 한국어 한 줄, 없으면 빈 문자열"}
+
+규칙:
+- price는 항상 세금 포함 금액입니다. 영수증이 세전가(外税/税抜)로 찍혀 있으면 세율을 더해 세금 포함으로 바꾸세요.
+- 할인·쿠폰 줄은 해당 품목 금액에서 빼고 별도 품목으로 넣지 마세요.
+- ※, *, 軽, 軽減 표시가 붙은 품목이나 식품·무알코올 음료는 rate 8, 술·화장품·의약품·잡화 등은 rate 10.
+- 결제수단, 거스름돈, 포인트, 소계 줄은 품목에 넣지 마세요.
+- bag은 넣을 가방 추천입니다. 보조배터리·리튬배터리 제품, 깨지기 쉬운 고가 전자기기·시계·귀금속은 "cabin", 100ml 넘는 액체·젤·스프레이(술, 화장수, 샴푸, 선크림 등)와 부피 큰 물건은 "checked", 나머지 작은 물건은 "checked".
+- 날짜가 연도 없이 보이면 2026년으로 가정하세요.`;
+
+let scanCtl = null;
+$('#fileCam').addEventListener('change', async e => {
+  const file = e.target.files && e.target.files[0]; e.target.value = '';
+  if (!file || (!sampleFn && !STANDALONE)) return;
+  const st = $('#scanStatus'); st.dataset.busy = '1'; st.className = 'status-line'; st.textContent = '영수증을 읽는 중이에요… (10~40초 정도 걸릴 수 있어요)';
+  const camBtn = $('#camBtn'); camBtn.style.pointerEvents = 'none'; camBtn.style.opacity = '.6';
+  const url = URL.createObjectURL(file);
+  scanCtl = new AbortController();
+  try {
+    const data = (sampleFn && canImages) ? await sampleFn.json(PROMPT, { images: [file], signal: scanCtl.signal }) : await scanViaApi(file);
+    const items = Array.isArray(data && data.items) ? data.items.map(i => ({ name: String(i.name || ''), nameKo: String(i.nameKo || ''), price: Math.round(Number(i.price) || 0), rate: Number(i.rate) === 8 ? 8 : 10, bag: i.bag === 'cabin' || i.bag === 'checked' ? i.bag : null, packed: false, used: false })).filter(i => i.name || i.price) : [];
+    st.textContent = '';
+    openSheet({ id: null, store: String(data.store || ''), date: /^\d{4}-\d{2}-\d{2}$/.test(data.date || '') ? data.date : '', items, printedTotal: data.printedTotal ?? null, printedTax: data.printedTax ?? null, taxFreeMarked: !!data.taxFreeMarked, note: String(data.note || '') }, url);
+  } catch (err) {
+    const code = err && err.code;
+    const msg = {
+      not_granted: 'Claude 사용을 허용하지 않아 사진 인식을 할 수 없어요. "직접 입력"으로 추가해 주세요.',
+      images_unavailable: '이 화면에서는 사진을 보낼 수 없어요. "직접 입력"을 이용해 주세요.',
+      image_rejected: '이 사진은 읽을 수 없어요. JPG·PNG로 다시 찍어 주세요.',
+      rate_limited: '요청이 많아요. 잠시 뒤 다시 시도해 주세요.',
+      invalid_json: '영수증을 표로 정리하지 못했어요. 더 밝고 평평하게 다시 찍어 주세요.',
+      refused: '이 사진은 처리할 수 없어요. 영수증만 나오게 다시 찍어 주세요.',
+      cancelled: ''
+    }[code] ?? '인식 중 문제가 생겼어요. 다시 시도하거나 "직접 입력"을 이용해 주세요.';
+    if (msg) flash(msg, true); else st.textContent = '';
+    if (code === 'not_granted' || code === 'images_unavailable') { canImages = false; updateCapture(); }
+    URL.revokeObjectURL(url);
+  } finally { delete st.dataset.busy; camBtn.style.pointerEvents = ''; camBtn.style.opacity = ''; }
+});
+
+/* ---------- review sheet ---------- */
+let draft = null, draftPhoto = null;
+function openSheet(r, photoUrl){
+  draft = JSON.parse(JSON.stringify(r || { id: null, store: '', date: todayStr() >= NEW_START ? todayStr() : NEW_START, items: [] }));
+  if (!draft.items.length) draft.items.push({ name: '', nameKo: '', price: 0, rate: 10, bag: null, packed: false, used: false });
+  draftPhoto = photoUrl || null;
+  const ph = $('#sheetPhoto'); if (draftPhoto) { ph.src = draftPhoto; ph.hidden = false; } else { ph.hidden = true; ph.removeAttribute('src'); }
+  $('#sheetTitle').textContent = draft.id ? '영수증 수정' : (photoUrl ? '읽어온 내용 확인' : '영수증 직접 입력');
+  const notes = [];
+  if (photoUrl && draft.taxFreeMarked === false) notes.push('영수증에 면세 표시가 보이지 않았어요. 면세 처리된 결제가 맞는지 확인해 주세요.');
+  if (draft.note) notes.push(draft.note);
+  $('#sheetNote').hidden = !notes.length; $('#sheetNote').textContent = notes.join(' ');
+  $('#edStore').value = draft.store || ''; $('#edDate').value = draft.date || '';
+  renderEdRows(); $('#sheetBg').hidden = false; document.body.style.overflow = 'hidden';
+}
+function closeSheet(){ $('#sheetBg').hidden = true; document.body.style.overflow = ''; if (draftPhoto) URL.revokeObjectURL(draftPhoto); draft = null; draftPhoto = null; }
+function renderEdRows(){
+  $('#edRows').innerHTML = draft.items.map((i, idx) => `<div class="ed-row">
+    <div class="names"><input type="text" id="en-${idx}" data-k="name" data-i="${idx}" value="${esc(i.name)}" placeholder="품목명" aria-label="품목명">
+      <input type="text" id="ek-${idx}" data-k="nameKo" data-i="${idx}" value="${esc(i.nameKo)}" placeholder="한국어 메모 (선택)" aria-label="한국어 메모">
+      <select id="eb-${idx}" data-k="bag" data-i="${idx}" aria-label="넣을 가방"><option value="" ${!i.bag?'selected':''}>가방 미정</option><option value="checked" ${i.bag==='checked'?'selected':''}>위탁 수하물</option><option value="cabin" ${i.bag==='cabin'?'selected':''}>기내 반입</option></select></div>
+    <input type="number" id="ep-${idx}" data-k="price" data-i="${idx}" value="${i.price || ''}" min="0" step="1" placeholder="¥" aria-label="세금 포함 금액" class="mono">
+    <select id="er-${idx}" data-k="rate" data-i="${idx}" aria-label="세율"><option value="10" ${Number(i.rate)!==8?'selected':''}>10%</option><option value="8" ${Number(i.rate)===8?'selected':''}>8%</option></select>
+    <button type="button" class="btn ghost" data-rm="${idx}" aria-label="품목 삭제">✕</button></div>`).join('');
+  $('#edRows').querySelectorAll('[data-k]').forEach(el => el.addEventListener('input', () => {
+    const it = draft.items[+el.dataset.i]; const k = el.dataset.k;
+    it[k] = k === 'price' ? Math.round(Number(el.value) || 0) : k === 'rate' ? Number(el.value) : k === 'bag' ? (el.value || null) : el.value; updateEdCalc();
+  }));
+  $('#edRows').querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { draft.items.splice(+b.dataset.rm, 1); renderEdRows(); });
+  updateEdCalc();
+}
+function updateEdCalc(){
+  draft.date = $('#edDate').value; draft.store = $('#edStore').value;
+  const k = calc(draft);
+  $('#edTotal').textContent = yen(k.total); $('#edEx').textContent = yen(k.ex); $('#edTax').textContent = yen(k.tax);
+  const pr = [];
+  if (draft.printedTotal != null) pr.push('영수증 합계 ' + yen(draft.printedTotal));
+  if (draft.printedTax != null) pr.push('영수증 표기 세액 ' + yen(draft.printedTax));
+  $('#edPrinted').textContent = pr.length ? pr.join(' · ') + ' — 위 계산과 다르면 품목 금액을 확인해 주세요.' : '';
+  const w = [];
+  if (draft.date && !k.isNew) w.push('<div class="alert warn">11월 1일 이전 구매는 기존 방식(매장 즉시 면세)이라 공항 환급 대상이 아니에요.</div>');
+  else if (k.items && k.under) w.push('<div class="alert bad">세전 ¥5,000 미만이라 면세 대상이 아니에요.</div>');
+  $('#edWarn').innerHTML = w.join('');
+}
+$('#edStore').addEventListener('input', updateEdCalc);
+$('#edDate').addEventListener('input', updateEdCalc);
+$('#edAdd').onclick = () => { draft.items.push({ name: '', nameKo: '', price: 0, rate: 10, packed: false, used: false }); renderEdRows(); const last = document.getElementById('en-' + (draft.items.length - 1)); last && last.focus(); };
+$('#sheetClose').onclick = closeSheet; $('#sheetCancel').onclick = closeSheet;
+$('#sheetBg').addEventListener('click', e => { if (e.target.id === 'sheetBg') closeSheet(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#sheetBg').hidden) closeSheet(); });
+$('#sheetSave').onclick = () => {
+  updateEdCalc();
+  const items = draft.items.filter(i => (i.name || '').trim() || i.price > 0);
+  if (!items.length) { $('#edWarn').innerHTML = '<div class="alert bad">품목을 하나 이상 입력해 주세요.</div>'; return; }
+  if (!draft.date) { $('#edWarn').innerHTML = '<div class="alert bad">구매일을 입력해 주세요. 90일 마감 계산에 필요해요.</div>'; return; }
+  const r = { id: draft.id || uid(), store: draft.store.trim(), date: draft.date, items, printedTotal: draft.printedTotal ?? null, printedTax: draft.printedTax ?? null, example: !!draft.example, createdAt: draft.createdAt || Date.now() };
+  const i = state.receipts.findIndex(x => x.id === r.id);
+  if (i >= 0) state.receipts[i] = r; else state.receipts.push(r);
+  state.receipts.sort((a, b) => (a.date || '').localeCompare(b.date || '') || a.createdAt - b.createdAt);
+  persistReceipt(r); closeSheet(); render(); flash('저장했어요.');
+};
+$('#manualBtn').onclick = () => openSheet(null);
+
+/* ---------- samples ---------- */
+function loadSamples(){
+  const now = Date.now();
+  const s = [
+    { id: uid(), example: true, createdAt: now, store: '(예시) サンプル薬局 心斎橋店', date: '2026-11-03', items: [
+      { name: '目薬 ロート Vアクティブ', nameKo: '눈 피로 안약', price: 1628, rate: 10, bag: 'cabin' },
+      { name: 'ヘアオイル 100ml', nameKo: '헤어 오일', price: 2970, rate: 10, bag: 'checked' },
+      { name: '休足シート 18枚', nameKo: '다리 쿨링 시트', price: 1078, rate: 10, bag: 'checked' },
+      { name: '抹茶キットカット 12枚', nameKo: '말차 초콜릿 과자', price: 734, rate: 8, bag: 'checked' },
+      { name: '日焼け止め 50g', nameKo: '선크림', price: 1980, rate: 10, bag: 'checked' } ] },
+    { id: uid(), example: true, createdAt: now + 1, store: '(예시) サンプル電機 なんば店', date: '2026-11-04', items: [
+      { name: 'ワイヤレスイヤホン', nameKo: '무선 이어폰', price: 16280, rate: 10, bag: 'cabin' },
+      { name: 'モバイルバッテリー 10000mAh', nameKo: '보조배터리 (기내 반입만 가능)', price: 3480, rate: 10, bag: 'cabin' } ] },
+  ];
+  s.forEach(r => { r.items.forEach(i => { i.packed = false; i.used = false; }); state.receipts.push(r); persistReceipt(r); });
+  render();
+}
+
+/* ---------- tabs & settings ---------- */
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-selected', x === t ? 'true' : 'false'));
+  ['receipts', 'check', 'guide'].forEach(n => $('#panel-' + n).hidden = n !== t.dataset.tab);
+  try { localStorage.setItem(LS + '-tab', t.dataset.tab); } catch(e){}
+});
+try { const last = localStorage.getItem(LS + '-tab'); if (last && last !== 'receipts') document.querySelector(`.tab[data-tab="${last}"]`)?.click(); } catch(e){}
+$('#departDate').addEventListener('change', e => { state.settings.departDate = e.target.value; persistSettings(); render(); });
+$('#feePct').addEventListener('input', e => { state.settings.feePct = Math.max(0, Number(e.target.value) || 0); persistSettings(); renderSummary(); renderSlips(); renderCheck(); });
+
+render();
+initStore();
+</script>
+
+</body>
+</html>
